@@ -1,12 +1,43 @@
 
 <html>
 	<head>
-    <meta charset="UTF-8"/>
-
 	<title>Choix des voeux</title>
-	    <script src='js/jquery-2.1.3.js'></script>
 
-	 <script>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src='js/jquery-2.1.3.js'></script>
+
+	<script>
+		var voeux = "<ul class=\"list-group\">";
+		var tmp="";
+		var dejafait = $("<i> Vous avez déjà ajouté cette formation </i>");
+		var ajoutermsg = $("<i> Formation ajouté à votre liste </i>");
+
+		function contient(a, b) {
+    		return a.indexOf(b) >= 0;
+		}
+  		function addVoeux(id) {
+  		$('#info').empty();
+
+  		if(tmp.indexOf(document.getElementsByTagName('table')[0].getElementsByTagName('tr')[id].cells[1].innerHTML) >= 0 ){
+			dejafait.appendTo('#info');
+  		}
+  		else{
+  			tmp+=document.getElementsByTagName('table')[0].getElementsByTagName('tr')[id].cells[1].innerHTML+" ";
+   			voeux = $("<li class=\"list-group-item\">"+document.getElementsByTagName('table')[0].getElementsByTagName('tr')[id].cells[1].innerHTML+" - " + document.getElementsByTagName('table')[0].getElementsByTagName('tr')[id].cells[0].innerHTML+"</li></ul>");
+			voeux.appendTo('#liste');
+			ajoutermsg.appendTo('#info');
+
+		}
+	}
+
+	var contenu = "<table class=\"table\"><thead><tr><th>Ecole</th><th>Formation</th><th>Site</th><th>Lieu</th><th>Choisir</th></tr></thead><tbody>";
+	contenu+= "<tr class=\"info\"><td>IUT A</td><td>Licence Pro DA2I</td><td><a href=\"https://da2i.univ-lille1.fr/\">DA2I</a></td><td>Lille</td><td><input type=submit id=1 onclick=\"addVoeux(this.id)\" value=\"Ajouter\"></td></tr>"
+	contenu+= "<tr><td>IUT A</td><td>Licence Pro CGIR</td><td><a href=\"https://www-iut.univ-lille1.fr/?aff=ID5&titre=Licences%20Pros&titre2=LP-INFORMATIQUE&loc=licences_professionnelles_info/\">CGIR</a></td><td>Lille</td><td><input type=submit id=2 onclick=\"addVoeux(this.id)\" value=\"Ajouter\"></td></tr>"
+	contenu+= "<tr class=\"info\"><td>IUT A</td><td>Licence Pro IRI</td><td><a href=\"https://www-iut.univ-lille1.fr/?aff=ID5&titre=Licences%20Pros&titre2=LP-GEII&loc=licences_professionnelles_geii\">IRI</a></td><td>Lille</td><td><input type=submit id=3 onclick=\"addVoeux(this.id)\" value=\"Ajouter\"></td></tr>"
+     contenu+="</tbody></table>";
 
 $(document).ready(function() {
   // Mettre ici les gestionnaires d'évènements pour les différents boutons
@@ -22,7 +53,7 @@ $(document).ready(function() {
   	var res = $("<p> Voici les différentes formation de "+formation+"</p>");
 
   }
-  var listeformation = $("<table class=\"table table-inverse\"><thead><tr><th>Nom</th><th>Formation</th><th>Lieu</th></tr></thead><tbody><tr><th scope=\"row\">IUT A</th><td>Licence Pro DA2I</td><td>Lille</td></tr></tbody></table>");
+  var listeformation = $(contenu);
 
     
        res.appendTo('#output');
@@ -44,6 +75,7 @@ $(document).ready(function() {
     // pour démarrer sur la page de choix
   $('#faire').trigger('click');
 
+ 
 }); // end document.ready
     </script>
 
@@ -68,14 +100,15 @@ $(document).ready(function() {
         <input id='ok_type' type='button' name = 'submit' value="OK">
     </div>
     </FORM>
-		<div id="output"/>
-
-		</div>
+		<div id="output"/></div>
+		<div id="info"/></div>
 	</div>
 
 	<div id="mes_formation"/>
 		<h1> Liste de vos voeux à ce jour </h1>
+		<div id="liste">
 
+		</div>	
 	</div>
 
 	</center>
