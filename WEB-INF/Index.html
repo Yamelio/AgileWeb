@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Language" content="fr"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<!-- START - NE PAS INDEXER -->
+
+	<title>Service d'authentification</title>
+
+<!-- STOP - NE PAS INDEXER -->
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/cas.css">
+</head>
+
+<body>
+
+<div id="conteneur_global">
+                        <div id="bandeau_haut">
+                          <div id="logo">
+                            <img src="images/bandeau_haut02-H.jpg" alt="univ" width="246" height="98"/>
+                          </div>
+                          <div id="logo-connexion">
+                            <h1>Connexion</h1>
+                          </div>
+                        </div>
+                        <div id="contenu_principal">
+                          <div id="bienvenue">
+                            <h1>Bienvenue sur le service  d'authentification de Post-IUT</h1>
+                            <p>Vous souhaitez accéder à un service qui nécessite une authentification. Entrez votre identifiant Lille1 (en minuscules) et votre mot de passe puis cliquez sur le bouton "Connexion" pour continuer.</p>
+                          </div>
+                          <div id="colonne_droite">
+                            <div id="zone_formulaire">     
+
+                              <form id="credentials" action="/login?service=http%3A%2F%2Fmoodle.univ-lille1.fr%2Flogin%2Findex.php%3FauthCAS%3DCAS" method="post">
+                                
+                                <div>
+                                  <label for="Identifiant">Identifiant :</label>
+                                  
+                                  
+                                    <input class="bordure" id="Identifiant" name="username" size="32" tabindex="1" accesskey="i" /><br/>
+                                  
+                                  <label for="Mot_de_passe">Mot de passe :</label>
+                                  <input class="bordure" name="password" type="password" tabindex="2" id="Mot_de_passe"/><br/>
+                                  <input type="hidden" name="_eventId" value="submit" />
+                                  <input type="hidden" name="lt" value="LT-253205-defdhvxK74fydvd63GejnxTlnUNG6s" />
+                                  <input type="hidden" name="execution" value="e1s1" />
+                                  <input class="envoi" name="submit" type="submit" value="Connexion" />
+                                </div>
+                              </form>
+                            </div>
+                         </div>
+</div>
+
+</body>
+</html>
+
+
