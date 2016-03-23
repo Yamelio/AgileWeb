@@ -1,0 +1,35 @@
+nav{
+	font-size:23px;
+}
+nav img{
+	height:100px;
+}
+#bordure{
+	border : 12px solid black;	
+	border-image : url("../Images/bois.jpg") 42 round stretch;
+	background-color : rgba(0,0,0,0.5);
+	}
+h3{	
+	font-size:28px;
+	color:#66FF66;
+	text-shadow: 1px 1px 1px white;
+	text-decoration:underline;
+}
+h4{
+	font-size:22px;
+	color:#66FF66;
+	text-shadow: 1px 1px 1px white;
+	text-decoration:underline;
+}
+body{
+	background-image:url('../Images/tableau.png');
+	background-repeat: repeat-x ;
+	font-size:19px;
+	color:white;
+	text-align:justify;
+}
+footer{
+	color:white;
+	font-size:14px;
+	text-align:right;
+}
