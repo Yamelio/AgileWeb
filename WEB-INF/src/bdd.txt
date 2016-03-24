@@ -1,0 +1,4 @@
+﻿url=jdbc:postgresql://psqlserv/post_iut
+driver=org.postgresql.Driver
+nom= alyasino
+mdp= moi

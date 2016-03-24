@@ -1,35 +1,48 @@
 nav{
-	font-size:23px;
+	font-size:20px;
 }
 nav img{
 	height:100px;
 }
-#bordure{
-	border : 12px solid black;	
-	border-image : url("../Images/bois.jpg") 42 round stretch;
-	background-color : rgba(0,0,0,0.5);
-	}
-h3{	
-	font-size:28px;
-	color:#66FF66;
-	text-shadow: 1px 1px 1px white;
-	text-decoration:underline;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #E6E6E6;
 }
-h4{
-	font-size:22px;
-	color:#66FF66;
-	text-shadow: 1px 1px 1px white;
-	text-decoration:underline;
+
+li {
+    float: left;
+    border-right: 1px solid #bbb;
 }
-body{
-	background-image:url('../Images/tableau.png');
-	background-repeat: repeat-x ;
-	font-size:19px;
-	color:white;
-	text-align:justify;
+li:last-child {
+    border-right: none;
 }
-footer{
-	color:white;
-	font-size:14px;
-	text-align:right;
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #A4A4A4;
+}
+
+#container {
+    width: 100%;
+    background: #f1f2ea url(background.gif) repeat-y right;
+    float: left;
+    margin-right: -200px;
+}
+#content {
+    background: #f1f2ea;
+    margin-right: 200px;
+}
+#sidebar {
+    width: 200px;
+    float: right;
+
