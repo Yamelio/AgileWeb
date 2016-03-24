@@ -32,7 +32,7 @@ public class Authent extends HttpServlet {
 
 		// ****************
 		try {
-			PreparedStatement ps = bdd.preparedStatement("select * from personne where login=? and pass=?");
+			PreparedStatement ps = bdd.preparedStatement("select * from tilisateur where login=? and password=? ;");
 			System.out.println(ps);
 			ps.setString(1,login);
 			ps.setString(2, pwd);
@@ -46,8 +46,7 @@ public class Authent extends HttpServlet {
 
 		try {
 			rs.next();
-			session.setAttribute("role", rs.getString("role"));
-			session.setAttribute("id", rs.getString("id"));
+			session.setAttribute("type", rs.getString("type"));
 		} catch (SQLException e1) {
 			success = false;
 		}
@@ -62,7 +61,7 @@ public class Authent extends HttpServlet {
 		session.setAttribute("success", success);
 		if (success) {
 			//session.setMaxInactiveInterval(10);
-			res.sendRedirect("./BDD?table=personne");
+			res.sendRedirect("../formation");
 		} else {
 			res.sendRedirect("./Login?redirect=true");
 		}

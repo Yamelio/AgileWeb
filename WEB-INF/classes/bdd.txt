@@ -1,4 +1,4 @@
-url=jdbc:postgresql://psqlserv/n3p1
+url=jdbc:postgresql://psqlserv/post_iut
 driver=org.postgresql.Driver
-nom=kleinpog
+nom=alyasino
 mdp=moi
