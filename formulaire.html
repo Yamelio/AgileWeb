@@ -21,8 +21,11 @@
   		function addVoeux(id) {
   		$('#info').empty();
 
+
+
   		if(tmp.indexOf(document.getElementsByTagName('table')[0].getElementsByTagName('tr')[id].cells[1].innerHTML) >= 0 ){
-			dejafait.appendTo('#info');
+
+			 dejafait.appendTo('#info');
   		}
   		else{
   			tmp+=document.getElementsByTagName('table')[0].getElementsByTagName('tr')[id].cells[1].innerHTML+" ";
@@ -33,7 +36,7 @@
 		}
 	}
 
-	var contenu = "<table class=\"table\"><thead><tr><th>Ecole</th><th>Formation</th><th>Site</th><th>Lieu</th><th>Choisir</th></tr></thead><tbody>";
+	var contenu = "<table class=\"table table-striped\"><thead><tr><th>Ecole</th><th>Formation</th><th>Site</th><th>Lieu</th><th>Choisir</th></tr></thead><tbody>";
 	contenu+= "<tr class=\"info\"><td>IUT A</td><td>Licence Pro DA2I</td><td><a href=\"https://da2i.univ-lille1.fr/\">DA2I</a></td><td>Lille</td><td><input type=submit id=1 onclick=\"addVoeux(this.id)\" value=\"Ajouter\"></td></tr>"
 	contenu+= "<tr><td>IUT A</td><td>Licence Pro CGIR</td><td><a href=\"https://www-iut.univ-lille1.fr/?aff=ID5&titre=Licences%20Pros&titre2=LP-INFORMATIQUE&loc=licences_professionnelles_info/\">CGIR</a></td><td>Lille</td><td><input type=submit id=2 onclick=\"addVoeux(this.id)\" value=\"Ajouter\"></td></tr>"
 	contenu+= "<tr class=\"info\"><td>IUT A</td><td>Licence Pro IRI</td><td><a href=\"https://www-iut.univ-lille1.fr/?aff=ID5&titre=Licences%20Pros&titre2=LP-GEII&loc=licences_professionnelles_geii\">IRI</a></td><td>Lille</td><td><input type=submit id=3 onclick=\"addVoeux(this.id)\" value=\"Ajouter\"></td></tr>"
@@ -60,20 +63,35 @@ $(document).ready(function() {
        listeformation.appendTo('#output');
   });
     
-     $('#faire').click(function (event) {
+     $('#faire_1').click(function (event) {
+         $('#mes_formation').hide();
      	  	$('#choix_formation').show();
-     	  	$('#mes_formation').hide();
+     	  	
 
      });
 
-    $('#voeux').click(function (event) {
+    $('#voeux_1').click(function (event) {
      	  	$('#choix_formation').hide();
      	  	$('#mes_formation').show();
 
      });
 
+    $('#faire_2').click(function (event) {
+         $('#mes_formation').hide();
+          $('#choix_formation').show();
+          
+
+     });
+
+    $('#voeux_2').click(function (event) {
+          $('#choix_formation').hide();
+          $('#mes_formation').show();
+
+     });
+
     // pour démarrer sur la page de choix
-  $('#faire').trigger('click');
+  $('#faire_1').trigger('click');
+  $('#faire_2').trigger('click');
 
  
 }); // end document.ready
@@ -81,37 +99,52 @@ $(document).ready(function() {
 
 </head>
 <body>
-	<input id='faire' type='button' name = 'submit' value="Effectuer un voeu">
-	</br>
-	<input id='voeux' type='button' name = 'submit' value="Mes voeux effectués">
+  <center>
 
-	<center>
-		<div id="choix_formation"/>
-			<h1> Choix de formation </h1>
+    <div id="choix_formation"/>
+      <h1> Choisir mes Formations </h1>
 
-  	 <FORM>
-   	 <div id="type_form" >
-   	 	<label>Type de poursuite d'étude :</label>
-    	<SELECT name="formation" id="formation" size="1">
-    	<OPTION>Licence Pro</OPTION>
-  	  	<OPTION>Licence</OPTION>
-   		<OPTION>Ecole d'ingénieur</OPTION>
-    	</SELECT>
-        <input id='ok_type' type='button' name = 'submit' value="OK">
+      <input id='faire_1' type='button' class="btn" name = 'submit' value="Choisir mes voeux">
+      <input id='voeux_1' type='button' class="btn" name = 'submit' value="Consulter ma liste">
+    
+
+      <div class="form-actions" style="margin:20px">
+     
+        <FORM>
+          <div id="type_form">
+            <label>Filiere - </label>
+            <SELECT name="formation" class="span2" id="formation" size="1">
+              <OPTION>Licence Pro</OPTION>
+              <OPTION>Licence</OPTION>
+              <OPTION>Ecole d'ingénieur</OPTION>
+            </SELECT>
+            <input id='ok_type' type='button' class="btn" name = 'submit' value="OK">
+          </div>
+        </FORM>
+
+      </div>
+
+      <div id="output"/></div>
+      <div id="info"/></div>
     </div>
-    </FORM>
-		<div id="output"/></div>
-		<div id="info"/></div>
-	</div>
 
-	<div id="mes_formation"/>
-		<h1> Liste de vos voeux à ce jour </h1>
-		<div id="liste">
+    <div id="mes_formation"/>
+      <h1> Ma liste de voeux </h1>
+      <input id='faire_2' type='button' class="btn" name = 'submit' value="Choisir mes voeux">
+      <input id='voeux_2' type='button' class="btn" name = 'submit' value="Consulter ma liste">
+      <div id="liste">
 
-		</div>	
-	</div>
+      </div>  
+    </div>
 
-	</center>
+
+   
+      
+
+     
+   
+
+  </center>
 
 </body>
 </html>
